@@ -12,6 +12,7 @@ private:
     bool ishigh;
     vector <int> balances;
     Blockchain * chain;
+    Block* latest_block;
     vector<Link*> links;
     int block_count;
     vector<Peer*> neighbour_peers;

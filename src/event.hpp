@@ -12,6 +12,11 @@ public:
     virtual void execute() = 0;  
 
     virtual ~Event() = default; 
+    struct Compare {
+        bool operator()(const Event* e1, const Event* e2) const {
+            return e1->timestamp > e2->timestamp;
+        }
+    };
 };
 
 class GenerateTxn : public Event {

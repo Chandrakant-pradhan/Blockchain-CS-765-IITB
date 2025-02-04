@@ -112,6 +112,34 @@ void simulation(vector<peer>& peers){
         x.links = links;
     }
 
-    
+
+    // genesis block creation and passing to all peers
+    int counter =0;
+    priority_queue<Event*, vector<Event*>, Event::Compare> event_pq;
+    Block* genesis = new Block(counter, nullptr, nullptr, null);
+    for(auto& peer : peers){
+        peer.blockchain = new Blockchain(genesis);
+        peer.start_generate_block(T_k, threshold_time);
+        peer.start_generate_transactions(T_x, threshold_time);
+        // blockchain has current_block and latest_block
+    }
+
+    //empty event_queue
+    while(!event_pq.empty()){
+        Event* current_event = event_pq.front();
+        event_pq.pop();
+
+        current_event->execute();
+        delete current_event;
+        generate_other_events(current_event);
+    }
+
+    //free up memory
+    for(auto& peer : peers){
+        delete peer.blockchain;
+        for(auto* link : peer.links){
+            delete link;
+        }
+    }
 
 }

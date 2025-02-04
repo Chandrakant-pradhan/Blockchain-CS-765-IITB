@@ -7,7 +7,6 @@ void Block::computeSize() {
     }
 }
 
-
 void Block::computeDepth() {
     if (parentBlock == nullptr) {
         depth = 0;
