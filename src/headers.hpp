@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 #include <random>
 #include <chrono>
 #include <map>
@@ -20,6 +21,8 @@ class Block;
 class Blockchain;
 class Link;
 class Event;
+class Peer;
+// Inherited event classes
 class GenerateTransaction : public Event;
 class ForwardTransaction : public Event;
 class ReceiveTransaction : public Event;
