@@ -8,20 +8,22 @@ public:
     static int counter;
     int ID;
     ld timestamp;
+    
     int depth;
     int size;
     vector<Transaction*> txns;
     Block* parentBlock;
     Peer* miner;
-    Block (ld ts , Block* parent , Peer* miner)
-       : timestamp(ts) , parentBlock(parent) , miner(miner){
+    
+    Block (ld ts , Block* parent , Peer* miner , vector<Transaction*>txns)
+       : timestamp(ts) , parentBlock(parent) , miner(miner) , txns(txns) {
        counter++;
        ID = counter;
     }
 
-    void addTxn(Transaction* txn);
     void computeSize();
-    //depth??
+    void computeDepth();
+ 
 };
 
 #endif // BLOCK_HPP

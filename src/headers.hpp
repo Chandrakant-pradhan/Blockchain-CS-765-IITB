@@ -1,13 +1,13 @@
-#ifndef DEFS_H
-#define DEFS_H
+#ifndef HEADERS_HPP
+#define HEADERS_HPP
 
 #include <iostream>
 #include <string>
-#include <vector>
 #include <random>
 #include <chrono>
 #include <map>
 #include <set>
+#include <vector>  
 
 // Type aliases
 typedef long long ll;
@@ -21,13 +21,13 @@ class Block;
 class Blockchain;
 class Link;
 class Event;
-class Peer;
-// Inherited event classes
-class GenerateTransaction : public Event;
-class ForwardTransaction : public Event;
-class ReceiveTransaction : public Event;
-class ReceiveBlock : public Event;
-class ForwardBlock : public Event;
-class BroadcastBlock : public Event;
 
-#endif // DEFS_H
+// Corrected forward declarations for derived classes
+class GenerateTransaction;  
+class ForwardTransaction;   
+class ReceiveTransaction;   
+class ReceiveBlock;   
+class ForwardBlock;   
+class BroadcastBlock;   
+
+#endif // HEADERS_HPP
