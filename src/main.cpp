@@ -1,4 +1,5 @@
 #include "headers.hpp"
+#include<bits/stdc++.h>
 using namespace std;
 
 int main(int argc, char* argv[]) {
@@ -9,8 +10,8 @@ int main(int argc, char* argv[]) {
     int timeLimit = 3600;
 
 
-    for (int i = 1; i < argc; i += 2) {  
-        if (i + 1 >= argc) {  
+    for (int i = 1; i < argc; i += 2) {
+        if (i + 1 >= argc) {
             cerr << "Error: Missing value for " << argv[i] << "\n";
             return 1;
         }
@@ -30,6 +31,18 @@ int main(int argc, char* argv[]) {
 
     //initialize simulation
     //TODO
+
+    vector<peer> peers;
+
+    for(int i=0; i<n; i++){
+        peers.push_back(i, 0, 0);
+    }
+
+
+    //random z0 percent assign fast/slow
+    
+
+    // random z1 percent assign low/high
     //run the simulation
     //TODO
 
