@@ -37,4 +37,3 @@ public:
 };
 
 #endif // PEER_HPP
-
