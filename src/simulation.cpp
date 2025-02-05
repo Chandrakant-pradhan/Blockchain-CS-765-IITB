@@ -112,6 +112,18 @@ void Simulation::setup_peers() {
     create_connected_graph();
 
     // Set up links between peers
+    for(int i=0; i<n; i++){
+        peer* owner = peers[i];
+        for(peer* next: peers[i]){
+            ld c_ij  = 5;
+            if(peers[i].isfast && next.isfast){
+                c_ij = 100;
+            }
+            ld p_ij = randomFloat(10.0 , 500.0);
+            Link* weight = new Link(next, p_ij, c_ij);
+            owner->links.push_back(weight);
+        }
+    }
 }
 
 void Simulation::generate_initial_events() {
