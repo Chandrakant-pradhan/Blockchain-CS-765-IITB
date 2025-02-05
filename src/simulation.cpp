@@ -14,13 +14,13 @@ void dfs(int node, vector<vector<int>>& adj, vector<bool>& visited) {
     }
 }
 
-bool graph_is_disconnected(vector<peer>& peers) {
+bool graph_is_disconnected(vector<Peer>& peers) {
     int n = peers.size();
     vector<vector<int>> adjacency_graph(n);
 
     for (int i = 0; i < n; i++) {
-        for (auto neighbor : peers[i].adjacent_nodes) {
-            adjacency_graph[i].push_back(neighbor - &peers[0]); // Get index
+        for (Peer* neighbor : peers[i].neighbour_peers) {
+            adjacency_graph[i].push_back(neighbor - &peers[0]);
         }
     }
     vector<bool> visited(n, false);
@@ -30,6 +30,7 @@ bool graph_is_disconnected(vector<peer>& peers) {
     }
     return false;
 }
+
 
 Simulation::Simulation(int n, double z0, double z1, double Ttx, double Tk, int timeLimit)
     : n(n), z0(z0), z1(z1), Ttx(Ttx), Tk(Tk), timeLimit(timeLimit) {
@@ -49,7 +50,7 @@ void Simulation::run() {
         }
 
         process_event(current_event);
-        generate_other_events(current_event);
+        // generate_other_events(current_event);
 
         delete current_event;
     }
@@ -78,7 +79,7 @@ void Simulation::assign_low_high() {
 void Simulation::create_connected_graph() {
     while (true) {
         for (Peer& peer : peers) {
-            peer.adjacent_nodes.clear();
+            peer.neighbour_peers.clear();
         }
 
         for (int i = 0; i < n; i++) {
@@ -88,8 +89,8 @@ void Simulation::create_connected_graph() {
                 int new_peer = rand() % n;
                 if (new_peer != i && neighbors.find(new_peer) == neighbors.end()) {
                     neighbors.insert(new_peer);
-                    peers[i].adjacent_nodes.push_back(&peers[new_peer]);
-                    peers[new_peer].adjacent_nodes.push_back(&peers[i]);
+                    peers[i].neighbour_peers.push_back(&peers[new_peer]);
+                    peers[new_peer].neighbour_peers.push_back(&peers[i]);
                 }
             }
         }
@@ -116,8 +117,8 @@ void Simulation::setup_peers() {
 void Simulation::generate_initial_events() {
     // Generate initial events for each peer
     for (auto& peer : peers) {
-        event_queue.push(new Event(Event::generateTxn_event, &peer, 0, 0));
-        event_queue.push(new Event(Event::generateBlk_event, &peer, 0, 0));
+        peer->createTxn(0);
+        peer->createBlk(0);
     }
 }
 
@@ -149,9 +150,4 @@ void Simulation::process_event(Event* event) {
             owner->receiveMinedBlk(timestamp, msg_size);
             break;
     }
-}
-
-void Simulation::generate_other_events(Event* event) {
-    // Implement logic to generate follow-up events based on the current event
-    // This may include scheduling new transaction generations, block creations, etc.
 }
