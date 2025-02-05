@@ -1,6 +1,10 @@
 {
     "files.associations": {
+        "*.stlb_pref": "cpp",
+        "*.l1d_pref": "cpp",
         "*.ejs": "html",
-        "vector": "cpp"
-    }
+        "vector": "cpp",
+        "iostream": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "enabled"
 }

@@ -5,13 +5,13 @@
 
 class Link {
 public:
-   Peer* Other;
+   Peer* other;
    ld p;
    ld d;
    ld c;
-   Link(Peer* other, ld p, ld c) : Other(other), p(p), c(c) {}
+   Link(Peer* other, ld p, ld c) : other(other), p(p), c(c) {}
    void setD();
-   void getTotalDelay(int msgSize);
+   ld getTotalDelay(int msgSize);
 };
 
 #endif // LINK_HPP

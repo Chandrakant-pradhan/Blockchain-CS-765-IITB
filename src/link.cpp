@@ -4,6 +4,6 @@ void Link::setD() {
     //dont know how to do it
 }
 
-int Link::getTotalDelay(int msgSize) {
+ld Link::getTotalDelay(int msgSize) {
     return p + msgSize/d + c;
 }

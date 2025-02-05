@@ -5,30 +5,41 @@
 
 class Event {
 public:
-    ld timestamp;
+    static Simulator* sim;
+    ld executeTime;
 
-    Event(ld ts) : timestamp(ts) {}
+    Event(ld ts) : executeTime(ts) {}
 
     virtual void execute() = 0;  
 
     virtual ~Event() = default; 
 };
 
-class GenerateTxn : public Event {
+class CreateTxnEvent : public Event {
+
 public:
-    GenerateTxn(ld ts) : Event(ts) {}  
+    Peer* peer;
+    ld executeTime;
+    CreateTxnEvent(Peer* p,ld ts) : Event(ts + globalTime), peer(p) {
+        sim->eventQ.push(this);
+    }  
     void execute() override;  
 };
 
-class ForwardTxn : public Event {
-public:
-    ForwardTxn(ld ts) : Event(ts) {}
-    void execute() override;
-};
+// class ForwardTxn : public Event {
+// public:
+//     ForwardTxn(ld ts) : Event(ts) {}
+//     void execute() override;
+// };
 
 class ReceiveTxn : public Event {
 public:
-    ReceiveTxn(ld ts) : Event(ts) {}
+    Peer* receiver;
+    Transaction* txn;
+
+    ReceiveTxn(ld ts, Peer* recv, Transaction*txn) : Event(ts + globalTime) {
+        sim->eventQ.push(this);
+    }
     void execute() override;
 };
 

@@ -8,13 +8,13 @@ public:
     static int counter;
     int ID;
     ld timestamp;
-    Peer* sender;  
-    Peer* receiver;
+    int senderID;  
+    int receiverID;
     int amount;
     int size = 1; // 1 Kb
     
-    Transaction(ld ts, Peer* send, Peer* recv , int amt) 
-        : timestamp(ts), sender(send), receiver(recv) , amount(amt){
+    Transaction(ld ts, int send, int recv , int amt) 
+        : timestamp(ts), senderID(send), receiverID(recv) , amount(amt){
         counter++;
         ID = counter;  
     }
