@@ -10,7 +10,6 @@ public:
     Block* genBlk;
     Block* currentBlk;
     
-
     Blockchain(Block* genBlk) : genBlk(genBlk) {
         currentBlk = genBlk;
     }

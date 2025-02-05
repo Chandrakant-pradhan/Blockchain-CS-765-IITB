@@ -1,4 +1,3 @@
-
 #include "blockchain.hpp"
 
 void Blockchain::addBlk(Block* b) {
