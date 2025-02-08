@@ -3,7 +3,7 @@
 int main(int argc, char* argv[]) {
     int n = 5;
     ld z0 = 20, z1 = 20;
-    ld Ttx = 5.0, I = 20;
+    ld Ttx = 5.0, I = 5;
     int timeLimit = 360;
 
     for (int i = 1; i < argc; i += 2) {

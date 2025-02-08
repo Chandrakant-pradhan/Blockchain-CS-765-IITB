@@ -26,6 +26,7 @@ int Block::computeDepth() {
 }
 
 Block* Block::make_copy_for_peer(Peer* other) {
+    counter--;
     Block* newBlock = new Block(timestamp, nullptr, miner, txns);
     Block* parent_block_in_other = nullptr; 
 

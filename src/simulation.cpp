@@ -8,12 +8,10 @@ Simulation::Simulation(int n, ld z0, ld z1, ld Ttx, ld I, int timeLimit)
     create_connected_graph();
     setup_peers();
     for(int i = 0; i < n; i++){
-        Peer* node1 = peer_map[i];
         cout<<i<<" -->";
-        for(int j = 0; j < adjacency_list[i].size() ; j++){
+        for(int j = 0; j < (int)adjacency_list[i].size() ; j++){
             int neigh = adjacency_list[i][j];
-            Peer* node2 = peer_map[neigh];
-            cout<<neigh<<"--"<<(node1->link_map[node2])->getTotalDelay(22038)<<" ";
+            cout<<neigh<<" ";
         }
         cout<<endl;
     }

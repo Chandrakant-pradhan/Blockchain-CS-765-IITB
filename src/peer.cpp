@@ -50,15 +50,18 @@ void Peer::on_receive_txn(Transaction* txn) {
 Block* Peer::on_order_to_create_block(ld timestamp) {
     vector<Transaction*> txns_to_include;
     auto txn = txn_pool.begin();
-
-    // Include transactions that are not already in the pool and have sufficient balance
+    vector<int>temp_balance = balance;
+    
     while (txn != txn_pool.end() && txns_to_include.size() <= ((ld)sim->max_block_size / sim->transaction_size - 1)) {
-        if (balance[(*txn)->senderID] < (*txn)->amount) { // Amount exceeds balance
+        int sender = (*txn)->senderID;
+        int amount = (*txn)->amount;
+        if (temp_balance[sender] <= 0 || temp_balance[sender] < amount) {
             txn++;
             continue;
         }
         txns_to_include.push_back(*txn);
-        txn = txn_pool.erase(txn);// Correctly update txn after erasing
+        temp_balance[sender] -= amount;
+        txn = txn_pool.erase(txn);  // Erase returns the next valid iterator.
     }
     Block* parent = miningBlock;
     Block* block = new Block(timestamp, parent, this, txns_to_include);

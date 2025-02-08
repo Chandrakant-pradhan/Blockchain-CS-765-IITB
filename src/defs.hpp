@@ -67,7 +67,15 @@ public:
 
     // this to be checked
     Transaction(ld ts, int senderID, int receiverID, int amt);
+
+    bool operator<(const Transaction& other) const {
+        if (timestamp == other.timestamp)
+            return ID < other.ID;
+        return timestamp < other.timestamp;
+    }
+    
     Transaction* make_copy();
+
 };
 
 // Block class
