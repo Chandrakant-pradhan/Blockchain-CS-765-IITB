@@ -1,165 +1,163 @@
-#include<bits/stdc++.h>
-using namespace std;
-#include <cstdlib>  // For rand()
-#include <ctime>    // For seeding rand()
+#include "defs.hpp"
 
-using namespace std;
-
-void dfs(int node, vector<vector<int>>& adj, vector<bool>& visited) {
-    visited[node] = true;
-    for (auto x : adj[node]) {
-        if (!visited[x]) {
-            dfs(x, adj, visited);
+Simulation::Simulation(int n, ld z0, ld z1, ld Ttx, ld I, int timeLimit)
+    : n(n), z0(z0), z1(z1), Ttx(Ttx), I(I), timeLimit(timeLimit) {
+    vector<Transaction*> txn;
+    global_genesis_block = new Block(0, nullptr, nullptr, txn);
+    adjacency_list.resize(n);
+    create_connected_graph();
+    setup_peers();
+    for(int i = 0; i < n; i++){
+        Peer* node1 = peer_map[i];
+        cout<<i<<" -->";
+        for(int j = 0; j < adjacency_list[i].size() ; j++){
+            int neigh = adjacency_list[i][j];
+            Peer* node2 = peer_map[neigh];
+            cout<<neigh<<"--"<<(node1->link_map[node2])->getTotalDelay(22038)<<" ";
         }
+        cout<<endl;
     }
 }
 
-bool graph_is_disconnected(vector<Peer>& peers) {
-    int n = peers.size();
-    vector<vector<int>> adjacency_graph(n);
+int Simulation::getRandomNumber(int min, int max) {
+    static random_device rd;
+    static mt19937 gen(rd());
+    uniform_int_distribution<int> dist(min, max);
+    return dist(gen);
+}
 
-    for (int i = 0; i < n; i++) {
-        for (Peer* neighbor : peers[i].neighbour_peers) {
-            adjacency_graph[i].push_back(neighbor - &peers[0]);
-        }
-    }
-    vector<bool> visited(n, false);
-    dfs(0, adjacency_graph, visited);
-    for (int i = 0; i < n; i++) {
-        if (!visited[i]) return true;
+bool Simulation::edgeExists(int a, int b) {
+    for (int neighbor : adjacency_list[a]) {
+        if (neighbor == b) return true;
     }
     return false;
 }
 
+bool Simulation::isConnected() {
+    vector<bool> visited(n, false);
+    queue<int> q;
+    int visitedCount = 0;
+    
+    q.push(0);
+    visited[0] = true;
 
-Simulation::Simulation(int n, double z0, double z1, double Ttx, double Tk, int timeLimit)
-    : n(n), z0(z0), z1(z1), Ttx(Ttx), Tk(Tk), timeLimit(timeLimit) {
-    setup_peers();
-}
+    while (!q.empty()) {
+        int peer = q.front();
+        q.pop();
+        visitedCount++;
 
-void Simulation::run() {
-    generate_initial_events();
-
-    while (!event_queue.empty()) {
-        Event* current_event = event_queue.top();
-        event_queue.pop();
-
-        if (current_event->timestamp > timeLimit) {
-            delete current_event;
-            break;
+        for (int neighbor : adjacency_list[peer]) {
+            if (!visited[neighbor]) {
+                visited[neighbor] = true;
+                q.push(neighbor);
+            }
         }
-
-        process_event(current_event);
-        // generate_other_events(current_event);
-
-        delete current_event;
     }
-}
-
-void Simulation::assign_slow_fast() {
-    int slow_count = n * (z0 / 100.0);
-    std::vector<int> indices(n);
-    for (int i = 0; i < n; ++i) indices[i] = i;
-    std::random_shuffle(indices.begin(), indices.end());
-    for (int i = 0; i < slow_count; ++i) {
-        peers[indices[i]].is_slow = true;
-    }
-}
-
-void Simulation::assign_low_high() {
-    int low_count = n * (z1 / 100.0);
-    std::vector<int> indices(n);
-    for (int i = 0; i < n; ++i) indices[i] = i;
-    std::random_shuffle(indices.begin(), indices.end());
-    for (int i = 0; i < low_count; ++i) {
-        peers[indices[i]].is_low = true;
-    }
+    return visitedCount == n; 
 }
 
 void Simulation::create_connected_graph() {
-    while (true) {
-        for (Peer& peer : peers) {
-            peer.neighbour_peers.clear();
+    bool connected = false;
+    
+    while (!connected) {
+        for (auto& neighbors : adjacency_list) {
+            neighbors.clear();
         }
-
-        for (int i = 0; i < n; i++) {
-            int num_neighbors = 3 + rand() % 4;
-            set<int> neighbors;
-            while (neighbors.size() < num_neighbors) {
-                int new_peer = rand() % n;
-                if (new_peer != i && neighbors.find(new_peer) == neighbors.end()) {
-                    neighbors.insert(new_peer);
-                    peers[i].neighbour_peers.push_back(&peers[new_peer]);
-                    peers[new_peer].neighbour_peers.push_back(&peers[i]);
+        for (int i = 0; i < n; ++i) {
+            while (adjacency_list[i].size() < 3) { 
+                int peer = getRandomNumber(0, n - 1);
+                if (peer != i && adjacency_list[i].size() < 6 && adjacency_list[peer].size() < 6 && !edgeExists(i, peer)) {
+                    adjacency_list[i].push_back(peer);
+                    adjacency_list[peer].push_back(i); 
                 }
             }
         }
-
-        if (!graph_is_disconnected(peers)) {
-            break;
-        }
+        connected = isConnected();
     }
+}
+
+void Simulation::run() {
+    
+    while (global_time < timeLimit && !event_queue.empty()) {
+        Event* event = event_queue.top();
+        event_queue.pop();
+        global_time = event->executeTime;
+        event->execute();
+        delete event;
+    }
+}
+
+bool probabilisticYes(ld probability) {
+    static random_device rd;
+    static mt19937 gen(rd());
+    uniform_real_distribution<ld> dis(0.0, 100.0);
+    return dis(gen) < probability; 
+}
+
+ld generatePropagationDelay() {
+    static random_device rd;
+    static mt19937 gen(rd());
+    uniform_real_distribution<ld> dis(10.0, 500.0); 
+    return dis(gen) / 1000.0; 
+}
+
+ld generateLinkSpeed(bool isFast_i, bool isFast_j) {
+    return (isFast_i && isFast_j) ? (100000.0 / 8.0) : (5000.0 / 8.0);
 }
 
 void Simulation::setup_peers() {
-    peers.reserve(n);
-    for (int i = 0; i < n; ++i) {
-        peers.emplace_back(i);
+    int no_of_low = 0;
+    cout<<"level1\n";
+    for (int i = 0; i < n; i++) {
+        bool is_slow = probabilisticYes(z0);
+        bool is_low = probabilisticYes(z1);
+        no_of_low += is_low;
+        peer_map[i] = new Peer(this, i, is_slow, is_low);
     }
-
-    assign_slow_fast();
-    assign_low_high();
-    create_connected_graph();
-
-    // Set up links between peers
-    for(int i=0; i<n; i++){
-        peer* owner = peers[i];
-        for(peer* next: peers[i]){
-            ld c_ij  = 5;
-            if(peers[i].isfast && next.isfast){
-                c_ij = 100;
+    
+    cout<<"level2\n";
+    for (int i = 0; i < n; i++) {
+        for (int j : adjacency_list[i]) {
+            if (i < j) {
+                ld pij = generatePropagationDelay();
+                ld cij = generateLinkSpeed(peer_map[i]->slow, peer_map[j]->slow);
+                Link* link = new Link(pij, cij);
+                peer_map[i]->link_map[peer_map[j]] = link;
+                peer_map[j]->link_map[peer_map[i]] = link;
             }
-            ld p_ij = randomFloat(10.0 , 500.0);
-            Link* weight = new Link(next, p_ij, c_ij);
-            owner->links.push_back(weight);
         }
     }
-}
-
-void Simulation::generate_initial_events() {
-    // Generate initial events for each peer
-    for (auto& peer : peers) {
-        peer->createTxn(0);
-        peer->createBlk(0);
+    cout<<"level3\n";
+    for (int i = 0; i < n; i++) {
+        for (int j : adjacency_list[i]) {
+            peer_map[i]->neigh.insert(peer_map[j]);
+            peer_map[j]->neigh.insert(peer_map[i]);
+        }
     }
-}
-
-void Simulation::process_event(Event* event) {
-    Peer* owner = event->owner;
-    double timestamp = event->timestamp;
-    int msg_size = event->msg_size;
-
-    switch (event->type) {
-        case Event::generateTxn_event:
-            owner->createTxn(timestamp);
-            break;
-        case Event::forwardTxn_event:
-            owner->broadcastTxn(timestamp, msg_size);
-            break;
-        case Event::ReceiveTxn_event:
-            owner->receiveTxn(timestamp, msg_size);
-            break;
-        case Event::Broadcast_event:
-            owner->broadcastBlk(timestamp);
-            break;
-        case Event::broadcastmined_event:
-            owner->broadcastMinedBlk(timestamp);
-            break;
-        case Event::ReceiveBlk_event:
-            owner->receiveBlk(timestamp, msg_size);
-            break;
-        case Event::forwardBlk_event:
-            owner->receiveMinedBlk(timestamp, msg_size);
-            break;
+    
+    cout<<"level4\n";
+    for (int i = 0; i < n; i++) {
+        peer_map[i]->block_chain.push_back(global_genesis_block->make_copy_for_peer(peer_map[i]));        
     }
+    
+    cout<<"level5\n";
+    ld low_hk = 1.0 / (no_of_low + (n - no_of_low) * 10);
+    for (int i = 0; i < n; i++) {
+        peer_map[i]->hk = peer_map[i]->low ? low_hk : 10 * low_hk;
+    }
+
+    //initialize balance
+    cout<<"level6\n";
+    for(int i=0 ; i<n ; i++){
+        (peer_map[i]->balance).resize(n , 0);
+    }
+
+
+    // start it is ok to have this but better not to have at those steps
+    cout<<"level7\n";
+    for (int i = 0; i < n; i++) {
+        event_queue.push(new Tell_node_to_create_txn(peer_map[i], 0));
+        event_queue.push(new Tell_node_to_create_block(peer_map[i], 0));
+    }
+
 }
