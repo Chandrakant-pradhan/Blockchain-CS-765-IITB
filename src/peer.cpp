@@ -118,6 +118,13 @@ void Peer::add_block_to_chain(Block* block) {
         longest_chain_tips.push_back(newBlock);
         miningBlock = newBlock;
         balance[newBlock->miner->ID] += 5; // Mining Fee
+
+        // initiate a new block creation event
+        Tell_node_to_create_block * event = new Tell_node_to_create_block(this,sim->global_time);
+        sim->event_queue.push(event);
+        // invalidate the ongoing creation process
+        if(createProc) createProc->isStillValid = false;
+        createProc = event;
     }
     else if(newBlock->depth > miningBlock->depth && newBlock->parentBlock != miningBlock){
         longest_chain_tips.clear();
@@ -125,6 +132,13 @@ void Peer::add_block_to_chain(Block* block) {
 
         // Now handle the branch change
         change_branch(newBlock);
+
+        // initiate a new block creation event
+        Tell_node_to_create_block * event = new Tell_node_to_create_block(this,sim->global_time);
+        sim->event_queue.push(event);
+        // invalidate the ongoing creation process
+        if(createProc) createProc->isStillValid = false;
+        createProc = event;
     }
     else if(newBlock->depth == miningBlock->depth && newBlock->parentBlock != miningBlock){
         longest_chain_tips.push_back(newBlock);

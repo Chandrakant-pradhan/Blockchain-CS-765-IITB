@@ -15,6 +15,7 @@ Tell_node_to_create_block::Tell_node_to_create_block(Peer* node, ld curr_time) :
     static std::default_random_engine generator(std::chrono::system_clock::now().time_since_epoch().count());
     std::exponential_distribution<double> exp_dist(node->hk / node->sim->I);
     this->executeTime = curr_time + exp_dist(generator);
+    isStillValid = true;
     // cout<<"Order Blk creation "<<node->ID<<"-->"<<curr_time<<"<--"<<executeTime<<endl;
 }
 
@@ -57,6 +58,7 @@ void Tell_node_they_rcvd_txn::execute(){
 } 
 
 void Tell_node_to_create_block::execute(){
+    if(!isStillValid) return;
     Block* block = node->on_order_to_create_block(this->executeTime);
     for(auto txn : block->txns){
         node->balance[txn->senderID] -= txn->amount;

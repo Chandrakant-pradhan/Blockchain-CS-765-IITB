@@ -29,6 +29,12 @@ class Transaction;
 class Link;
 class Simulation;
 
+// Event Derived classes
+class Tell_node_to_create_txn;
+class Tell_node_they_rcvd_txn;
+class Tell_node_to_create_block;
+class Tell_node_they_rcvd_block;
+
 // Event class
 class Event {
 public:
@@ -119,6 +125,7 @@ public:
     vector<Block*> longest_chain_tips;
     set<Transaction*> txn_pool;
     set<Block*> block_pool;
+    Tell_node_to_create_block* createProc;
 
     Peer(Simulation* sim, int ID, bool slow, bool low);
     virtual ~Peer() = default;
@@ -182,6 +189,7 @@ public:
 class Tell_node_to_create_block : public Event {
 public:
     Peer* node;
+    bool isStillValid;
     //simulator telling node to create a block at curr_time + random time
     Tell_node_to_create_block(Peer* node, ld curr_time);
     void execute();
