@@ -1,0 +1,68 @@
+--- Starting Arbitrage Simulation ---
+Fetching ABIs...
+ABIs fetched.
+Fetching accounts...
+Deployer (Token Owner):
+0x5B38Da6a701c568545dCfcB03FcB875f56beddC4
+Arbitrageur Account:
+0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2
+LP Setup Account:
+0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db
+Connecting to manually deployed contracts...
+Connected to TokenA:
+0x047b37Ef4d76C2366F795Fb557e3c15E0607b7d8
+Connected to TokenB:
+0x7FDc955b5E2547CC67759eDba3fd5d7027b9Bd66
+Connected to Dex1:
+0xc4d5177E415a5f5116Dc07Db14273f2755Ef7aAe
+Connected to Dex2:
+0x26a77595Aa80350af52A14116E197E53b8B92601
+Connected to Arbitrageur
+0x438eacEBf3F2a1c3E8560277345E83ff228355bE
+Funding Arbitrageur 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2...
+Arbitrageur 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2 approving Arbitrage contract 0x438eacEBf3F2a1c3E8560277345E83ff228355bE...
+
+--- SCENARIO 1: Profitable Arbitrage Setup ---
+Ensuring LP account 0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db is funded...
+LP 0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db approving DEX at 0xc4d5177E415a5f5116Dc07Db14273f2755Ef7aAe...
+LP 0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db adding liquidity to 0xc4d5177E415a5f5116Dc07Db14273f2755Ef7aAe...
+DEX @ 0xc4d5177E415a5f5116Dc07Db14273f2755Ef7aAe Liquidity: 1000 A / 2000 B
+Ensuring LP account 0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db is funded...
+LP 0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db approving DEX at 0x26a77595Aa80350af52A14116E197E53b8B92601...
+LP 0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db adding liquidity to 0x26a77595Aa80350af52A14116E197E53b8B92601...
+DEX @ 0x26a77595Aa80350af52A14116E197E53b8B92601 Liquidity: 1000 A / 2100 B
+Current Prices (A in B * 1e18): Dex1=2000000000000000000, Dex2=2100000000000000000
+
+--- Attempting Arbitrage (Scenario 1) ---
+Arbitrageur Balances Before: A=100 B=100
+Arbitrage Tx1 SUCCEEDED (Check Events). Gas used:
+212458
+>>> ArbitrageExecuted Event:
+{"0":"0x047b37Ef4d76C2366F795Fb557e3c15E0607b7d8","1":"10000000000000000000","2":"0x26a77595Aa80350af52A14116E197E53b8B92601","3":"0xc4d5177E415a5f5116Dc07Db14273f2755Ef7aAe","4":"10228363323085460965","5":"228363323085460965","tokenStart":"0x047b37Ef4d76C2366F795Fb557e3c15E0607b7d8","amountIn":"10000000000000000000","dexBuyOn":"0x26a77595Aa80350af52A14116E197E53b8B92601","dexSellOn":"0xc4d5177E415a5f5116Dc07Db14273f2755Ef7aAe","amountOutFinal":"10228363323085460965","profit":"228363323085460965"} 
+--- ArbitrageSkipped Event:
+{"0":"0x7FDc955b5E2547CC67759eDba3fd5d7027b9Bd66","1":"Profit below threshold","2":"-73625483645849413","tokenStart":"0x7FDc955b5E2547CC67759eDba3fd5d7027b9Bd66","reason":"Profit below threshold","potentialProfit":"-73625483645849413"} 
+Arbitrageur Balances After: A=100.228363323085460965 B=100
+Profit A (Wei): 228363323085460965
+Profit B (Wei): 0
+Current Prices (A in B * 1e18): Dex1=2041612674926502929, Dex2=2058682852750160111
+
+--- SCENARIO 2: Non-Profitable Arbitrage Setup ---
+Performing balancing swap(s) to equalize prices...
+LP performing balancing swap: 20 B for A on DEX2
+Balancing swap complete.
+Current Prices (A in B * 1e18): Dex1=2041612674926502929, Dex2=2098417306326774915
+
+--- Attempting Arbitrage (Scenario 2) ---
+Arbitrageur Balances Before: A=100.228363323085460965 B=100
+Arbitrage Tx2 SUCCEEDED (Check Events). Gas used:
+212493
+>>> ArbitrageExecuted Event:
+{"0":"0x047b37Ef4d76C2366F795Fb557e3c15E0607b7d8","1":"10000000000000000000","2":"0x26a77595Aa80350af52A14116E197E53b8B92601","3":"0xc4d5177E415a5f5116Dc07Db14273f2755Ef7aAe","4":"10013501417461006627","5":"13501417461006627","tokenStart":"0x047b37Ef4d76C2366F795Fb557e3c15E0607b7d8","amountIn":"10000000000000000000","dexBuyOn":"0x26a77595Aa80350af52A14116E197E53b8B92601","dexSellOn":"0xc4d5177E415a5f5116Dc07Db14273f2755Ef7aAe","amountOutFinal":"10013501417461006627","profit":"13501417461006627"} 
+--- ArbitrageSkipped Event:
+{"0":"0x7FDc955b5E2547CC67759eDba3fd5d7027b9Bd66","1":"Profit below threshold","2":"-28991887844738518","tokenStart":"0x7FDc955b5E2547CC67759eDba3fd5d7027b9Bd66","reason":"Profit below threshold","potentialProfit":"-28991887844738518"} 
+Arbitrageur Balances After: A=100.241864740546467592 B=100
+Profit A (Wei): 13501417461006627
+Profit B (Wei): 0
+Current Prices (A in B * 1e18): Dex1=2083621480974223618, Dex2=2057147813751179494
+
+--- Arbitrage Simulation Complete ---

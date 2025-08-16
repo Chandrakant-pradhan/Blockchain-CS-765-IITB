@@ -1,0 +1,503 @@
+
+--- Transaction 1/75 ---
+Action: Add Liquidity by 0x17F6AD8Ef982297579C203069C1DbfFE4348c372
+Attempting to add A: 796 B: 796
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 2/75 ---
+Action: Add Liquidity by 0x17F6AD8Ef982297579C203069C1DbfFE4348c372
+Attempting to add A: 3120.32 B: 3120.32
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 3/75 ---
+Action: Add Liquidity by 0x617F2E2fD72FD9D5503197092aC168c91465E7f2
+Attempting to add A: 800 B: 800
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 4/75 ---
+Action: Swap by 0x03C6FcED478cBbC9a4FAB34eF9f40767739D1Ff7 (A->B)
+Attempting to swap 1205.58336 A
+Slippage: -0.04%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 5/75 ---
+Action: Swap by 0xCA35b7d915458EF540aDe6068dFe2F44E8fa733c (B->A)
+Attempting to swap 47.938495365775450061 B
+Slippage: 0%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 6/75 ---
+Action: Remove Liquidity by 0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB
+LP has no LP tokens, skipping remove.
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 7/75 ---
+Action: Add Liquidity by 0x617F2E2fD72FD9D5503197092aC168c91465E7f2
+Attempting to add A: 2352 B: 2150.340688907665303582
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 8/75 ---
+Action: Remove Liquidity by 0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db
+LP has no LP tokens, skipping remove.
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 9/75 ---
+Action: Swap by 0x14723A09ACff6D2A60DcdF7aA4AFf308FDDC160C (B->A)
+Attempting to swap 2407.412471778827252179 B
+Slippage: -0.08%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 10/75 ---
+Action: Swap by 0x4B0897b0513fdC7C541B6d9D7E929C4e5364D2dB (A->B)
+Attempting to swap 2175.995325247957143449 A
+Slippage: -0.07%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 11/75 ---
+Action: Add Liquidity by 0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB
+Attempting to add A: 4000 B: 3717.99150091781453154
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 12/75 ---
+Action: Add Liquidity by 0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB
+Attempting to add A: 1440 B: 1338.476940330413231354
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 13/75 ---
+Action: Swap by 0x14723A09ACff6D2A60DcdF7aA4AFf308FDDC160C (A->B)
+Attempting to swap 541.324903565019293755 A
+Slippage: -0.01%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 14/75 ---
+Action: Add Liquidity by 0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB
+Attempting to add A: 3456 B: 3112.112139118389508872
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 15/75 ---
+Action: Swap by 0x03C6FcED478cBbC9a4FAB34eF9f40767739D1Ff7 (B->A)
+Attempting to swap 1975.819861889629209192 B
+Slippage: -0.05%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 16/75 ---
+Action: Swap by 0x1aE0EA34a72D944a8C7603FfB3eC30a6669E454C (A->B)
+Attempting to swap 2860.971946341173323663 A
+Slippage: -0.07%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 17/75 ---
+Action: Remove Liquidity by 0x17F6AD8Ef982297579C203069C1DbfFE4348c372
+Attempting to remove 1646.528 LP tokens
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 18/75 ---
+Action: Add Liquidity by 0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db
+Attempting to add A: 3200 B: 2765.542880083607567774
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 19/75 ---
+Action: Swap by 0x1aE0EA34a72D944a8C7603FfB3eC30a6669E454C (A->B)
+Attempting to swap 3284.185122550603087467 A
+Slippage: -0.07%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 20/75 ---
+Action: Swap by 0x1aE0EA34a72D944a8C7603FfB3eC30a6669E454C (B->A)
+Attempting to swap 1983.84334565397960258 B
+Slippage: -0.06%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 21/75 ---
+Action: Add Liquidity by 0x617F2E2fD72FD9D5503197092aC168c91465E7f2
+Attempting to add A: 2210.88 B: 1840.826182390773844797
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 22/75 ---
+Action: Swap by 0x5c6B0f7Bf3E7ce046039Bd8FABdfD3f9F5021678 (B->A)
+Attempting to swap 1146.308571041421582616 B
+Slippage: -0.03%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 23/75 ---
+Action: Swap by 0xCA35b7d915458EF540aDe6068dFe2F44E8fa733c (A->B)
+Attempting to swap 833.862895376270948811 A
+Slippage: -0.02%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 24/75 ---
+Action: Add Liquidity by 0x617F2E2fD72FD9D5503197092aC168c91465E7f2
+Attempting to add A: 2078.2272 B: 1771.270271144774300701
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 25/75 ---
+Action: Swap by 0x4B0897b0513fdC7C541B6d9D7E929C4e5364D2dB (A->B)
+Attempting to swap 4237.497312098032746989 A
+Slippage: -0.08%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 26/75 ---
+Action: Swap by 0x1aE0EA34a72D944a8C7603FfB3eC30a6669E454C (A->B)
+Attempting to swap 1269.911036583484129545 A
+Slippage: -0.02%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 27/75 ---
+Action: Swap by 0x03C6FcED478cBbC9a4FAB34eF9f40767739D1Ff7 (A->B)
+Attempting to swap 100.225286425742670531 A
+Slippage: 0%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 28/75 ---
+Action: Remove Liquidity by 0x17F6AD8Ef982297579C203069C1DbfFE4348c372
+Attempting to remove 1234.896 LP tokens
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 29/75 ---
+Action: Swap by 0x0A098Eda01Ce92ff4A4CCb7A4fFFb5A43EBC70DC (B->A)
+Attempting to swap 589.842199470238353349 B
+Slippage: -0.02%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 30/75 ---
+Action: Remove Liquidity by 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2
+Attempting to remove 9696 LP tokens
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 31/75 ---
+Action: Swap by 0x583031D1113aD414F02576BD6afaBfb302140225 (A->B)
+Attempting to swap 3441.213727358656910736 A
+Slippage: -0.08%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 32/75 ---
+Action: Swap by 0x583031D1113aD414F02576BD6afaBfb302140225 (B->A)
+Attempting to swap 2030.131815545149553397 B
+Slippage: -0.08%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 33/75 ---
+Action: Remove Liquidity by 0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db
+Attempting to remove 178.396463982875646073 LP tokens
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 34/75 ---
+Action: Add Liquidity by 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2
+Attempting to add A: 2199.672773749851273399 B: 1514.083691896258338032
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 35/75 ---
+Action: Remove Liquidity by 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2
+Attempting to remove 4807.401757634450235145 LP tokens
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 36/75 ---
+Action: Add Liquidity by 0x617F2E2fD72FD9D5503197092aC168c91465E7f2
+Attempting to add A: 3255.88928 B: 2241.101003884343643386
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 37/75 ---
+Action: Swap by 0x4B0897b0513fdC7C541B6d9D7E929C4e5364D2dB (A->B)
+Attempting to swap 179.51852712368802146 A
+Slippage: 0%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 38/75 ---
+Action: Add Liquidity by 0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db
+Attempting to add A: 2961.22368139590230865 B: 2018.075336109234094435
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 39/75 ---
+Action: Swap by 0x03C6FcED478cBbC9a4FAB34eF9f40767739D1Ff7 (B->A)
+Attempting to swap 2581.054520043394897411 B
+Slippage: -0.09%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 40/75 ---
+Action: Add Liquidity by 0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db
+Attempting to add A: 1021.622170081586296484 B: 837.634400315712216707
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 41/75 ---
+Action: Remove Liquidity by 0x617F2E2fD72FD9D5503197092aC168c91465E7f2
+Attempting to remove 1355.143372531169578789 LP tokens
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 42/75 ---
+Action: Add Liquidity by 0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB
+Attempting to add A: 933.12 B: 765.070918106816418146
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 43/75 ---
+Action: Remove Liquidity by 0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db
+Attempting to remove 2833.666610686461928263 LP tokens
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 44/75 ---
+Action: Remove Liquidity by 0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB
+Attempting to remove 374.611371717465288025 LP tokens
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 45/75 ---
+Action: Remove Liquidity by 0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB
+Attempting to remove 4045.802814548625110679 LP tokens
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 46/75 ---
+Action: Add Liquidity by 0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db
+Attempting to add A: 361.662637702558075256 B: 296.529456310044822875
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 47/75 ---
+Action: Swap by 0xCA35b7d915458EF540aDe6068dFe2F44E8fa733c (A->B)
+Attempting to swap 653.125062536052896309 A
+Slippage: -0.02%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 48/75 ---
+Action: Add Liquidity by 0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db
+Attempting to add A: 1074.138033976597483511 B: 841.593391863564791217
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 49/75 ---
+Action: Swap by 0x14723A09ACff6D2A60DcdF7aA4AFf308FDDC160C (B->A)
+Attempting to swap 2077.005298515787620977 B
+Slippage: -0.08%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 50/75 ---
+Action: Add Liquidity by 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2
+Attempting to add A: 1751.299475444375079472 B: 1623.88412915475490514
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 51/75 ---
+Action: Remove Liquidity by 0x617F2E2fD72FD9D5503197092aC168c91465E7f2
+Attempting to remove 3829.247986952362038351 LP tokens
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 52/75 ---
+Action: Remove Liquidity by 0x17F6AD8Ef982297579C203069C1DbfFE4348c372
+Attempting to remove 518.65632 LP tokens
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 53/75 ---
+Action: Swap by 0x0A098Eda01Ce92ff4A4CCb7A4fFFb5A43EBC70DC (B->A)
+Attempting to swap 2079.897181555840800216 B
+Slippage: -0.08%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 54/75 ---
+Action: Add Liquidity by 0x17F6AD8Ef982297579C203069C1DbfFE4348c372
+Attempting to add A: 3573.200063654816487551 B: 3935.476811370273071423
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 55/75 ---
+Action: Add Liquidity by 0x617F2E2fD72FD9D5503197092aC168c91465E7f2
+Attempting to add A: 3478.450015339942765515 B: 3831.120321004045234379
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 56/75 ---
+Action: Remove Liquidity by 0x617F2E2fD72FD9D5503197092aC168c91465E7f2
+Attempting to remove 1953.509219427369707143 LP tokens
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 57/75 ---
+Action: Swap by 0x5c6B0f7Bf3E7ce046039Bd8FABdfD3f9F5021678 (B->A)
+Attempting to swap 3090.287591983617420955 B
+Slippage: -0.09%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 58/75 ---
+Action: Swap by 0x583031D1113aD414F02576BD6afaBfb302140225 (B->A)
+Attempting to swap 101.979490535459374891 B
+Slippage: 0%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 59/75 ---
+Action: Add Liquidity by 0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB
+Attempting to add A: 1752.975614877536498374 B: 2349.528832076638176368
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 60/75 ---
+Action: Add Liquidity by 0x617F2E2fD72FD9D5503197092aC168c91465E7f2
+Attempting to add A: 1990.23576723568298682 B: 2667.530727788863914179
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 61/75 ---
+Action: Swap by 0x03C6FcED478cBbC9a4FAB34eF9f40767739D1Ff7 (B->A)
+Attempting to swap 3324.537217788764013155 B
+Slippage: -0.08%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 62/75 ---
+Action: Remove Liquidity by 0x617F2E2fD72FD9D5503197092aC168c91465E7f2
+Attempting to remove 2121.515314552956440383 LP tokens
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 63/75 ---
+Action: Remove Liquidity by 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2
+Attempting to remove 2668.882678755948221337 LP tokens
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 64/75 ---
+Action: Add Liquidity by 0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB
+Attempting to add A: 666.130733653463869382 B: 1050.804128911686117856
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 65/75 ---
+Action: Swap by 0x1aE0EA34a72D944a8C7603FfB3eC30a6669E454C (B->A)
+Attempting to swap 3258.956932526318956422 B
+Slippage: -0.08%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 66/75 ---
+Action: Swap by 0x0A098Eda01Ce92ff4A4CCb7A4fFFb5A43EBC70DC (B->A)
+Attempting to swap 1832.320440856607951188 B
+Slippage: -0.04%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 67/75 ---
+Action: Swap by 0x0A098Eda01Ce92ff4A4CCb7A4fFFb5A43EBC70DC (A->B)
+Attempting to swap 1380.243054031810510186 A
+Slippage: -0.06%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 68/75 ---
+Action: Swap by 0x03C6FcED478cBbC9a4FAB34eF9f40767739D1Ff7 (A->B)
+Attempting to swap 1070.064796798480002806 A
+Slippage: -0.04%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 69/75 ---
+Action: Remove Liquidity by 0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB
+Attempting to remove 2966.152553587503471392 LP tokens
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 70/75 ---
+Action: Add Liquidity by 0x17F6AD8Ef982297579C203069C1DbfFE4348c372
+Attempting to add A: 1083.870685975294334557 B: 1767.561023634277084532
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 71/75 ---
+Action: Remove Liquidity by 0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB
+Attempting to remove 1742.224342001923091617 LP tokens
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 72/75 ---
+Action: Swap by 0x1aE0EA34a72D944a8C7603FfB3eC30a6669E454C (B->A)
+Attempting to swap 778.350293421892705874 B
+Slippage: -0.02%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 73/75 ---
+Action: Swap by 0x03C6FcED478cBbC9a4FAB34eF9f40767739D1Ff7 (A->B)
+Attempting to swap 1298.326571857442659297 A
+Slippage: -0.06%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 74/75 ---
+Action: Swap by 0xCA35b7d915458EF540aDe6068dFe2F44E8fa733c (A->B)
+Attempting to swap 604.371019199639557902 A
+Slippage: -0.03%
+Collecting metrics...
+Metrics collected.
+
+--- Transaction 75/75 ---
+Action: Swap by 0x14723A09ACff6D2A60DcdF7aA4AFf308FDDC160C (A->B)
+Attempting to swap 931.940111605844198286 A
+Slippage: -0.04%
+Collecting metrics...
+Metrics collected.
+
+--- Simulation Finished ---
+Total Transactions:
+75
+
+
+
+--- Aggregate Metrics ---
+Total Swap Volume A (Wei):
+54627776328456868848459
+Total Swap Volume B (Wei):
+54878147139145079405854
+Accumulated Fees A (Approx Wei):
+78205080176099694294
+Accumulated Fees B (Approx Wei):
+87917057183918114225
+Final Reserve A (Wei):
+23120990387935467967016
+Final Reserve B (Wei):
+30386929115532590927758
